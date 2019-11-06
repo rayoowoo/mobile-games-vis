@@ -1,9 +1,12 @@
 import React from 'react';
+import Vis from './vis.js'
 
 function App() {
   return (
     <div className="App">
-      <h1>HI</h1>
+      <div id="my_dataviz">
+        <Vis />
+      </div>
     </div>
   );
 }
