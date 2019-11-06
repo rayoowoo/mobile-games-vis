@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from fastparquet import ParquetFile
 from datetime import datetime
 import pandas as pd
@@ -14,10 +14,10 @@ def names():
 
 @app.route('/rating-language', methods=['GET'])
 def rating_language():
-    games = data[['Name', 'Average User Rating', 'Language Count']]
+    games = data[['Name', 'Average User Rating', 'Language Count', "ID"]]
     games = games[games['Average User Rating'] != 0.0]
-    json_games = games.to_json(orient='index')
-    return json_games
+    games = games.to_dict('records')
+    return jsonify(games)
 
 # @app.route('/')
 
