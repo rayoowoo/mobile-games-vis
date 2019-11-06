@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <div id="my_dataviz">
-        <Vis />
+        {Vis()}
       </div>
     </div>
   );
